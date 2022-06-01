@@ -1,6 +1,10 @@
 name: my action
 on: pull_request_target
 
+env:
+  # Environment variable for demonstration purposes
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   pr-check: 
     name: Check PR
@@ -16,6 +20,4 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        env:
-          github: ${{ secrets.GITHUB_TOKEN }}
         run: npm install
